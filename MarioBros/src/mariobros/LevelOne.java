@@ -11,8 +11,7 @@ public class LevelOne extends GameScreen{
         super();
         Player player = new Player(50, 700, 50, 50, Color.BLUE);
         objects.add(player);
-        objects.add(new Enemy(480, 245, 50, 50, Color.PINK));
-        objects.add(new Platform(200, 400, 100, 50, Color.BLACK));
+        objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
     }
     
@@ -36,7 +35,9 @@ public class LevelOne extends GameScreen{
             for(GameObject i : objects){
                 if (i instanceof Player){
                     if (((Player) i).getCollision() == true)
-                        ((Player) i).setVelY(-5);
+                        ((Player) i).setVelY(-10);
+                    else
+                        ((Player) i).setVelY(0);
                }
             }
         }
@@ -90,6 +91,8 @@ public class LevelOne extends GameScreen{
                 enemyXSpan = enemyX + i.getW();
                 enemyY = i.getY();
                 enemyYSpan = enemyY + i.getH();
+                if (i.getX() <= 0)
+                    ((Enemy) i).reset();
             }
         }
         for (GameObject i : objects){

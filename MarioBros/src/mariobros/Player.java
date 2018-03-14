@@ -8,8 +8,6 @@ public class Player extends GameObject{
     private int velocityX;
     private int velocityY;
     private boolean collision, collideAtAll;
-    ArrayList<Boolean> collides;
-    
 
     public Player(int posX, int posY, int width, int height, Color c){
         super(posX, posY, width, height, c);
