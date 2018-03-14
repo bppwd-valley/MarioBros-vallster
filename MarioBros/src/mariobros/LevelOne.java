@@ -1,6 +1,5 @@
 package mariobros;
 
-import java.util.ArrayList;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -8,11 +7,8 @@ import javafx.scene.paint.Color;
 public class LevelOne extends GameScreen{
     
     int enemyX, enemyXSpan, enemyY, enemyYSpan, platformX, platformXSpan, platformY, platformYSpan;
-    ArrayList<Boolean> collides;
-    Boolean collideAtAll;
     public LevelOne(){
         super();
-        collides = new ArrayList();
         Player player = new Player(50, 700, 50, 50, Color.BLUE);
         objects.add(player);
         objects.add(new Enemy(480, 245, 50, 50, Color.PINK));
@@ -106,7 +102,6 @@ public class LevelOne extends GameScreen{
         }
         for (GameObject i : objects){
             if (i instanceof Player){
-                System.out.println(collideAtAll);
                 if((i.getX() >= enemyX && i.getX() <= enemyXSpan || i.getX() + i.getW() >= enemyX && i.getX() + i.getW() <= enemyXSpan)&&(i.getY() >= enemyY && i.getY() <= enemyYSpan || i.getY() + i.getH() >= enemyY && i.getY() + i. getH() <= enemyYSpan)){                   
                     return false;
                 } else if((i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
@@ -114,8 +109,6 @@ public class LevelOne extends GameScreen{
                 } else {
                     ((Player) i).setCollision(false);
                 }
-                collides.add(((Player) i).getCollision());
-                
                 if(i.getY() + i.getH() > 800) {
                     i.setY(800 - i.getH());
                 } 
