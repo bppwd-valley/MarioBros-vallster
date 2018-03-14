@@ -102,6 +102,7 @@ public class LevelOne extends GameScreen{
         }
         for (GameObject i : objects){
             if (i instanceof Player){
+                System.out.println("Player X: " + i.getX() + "  " + "Enemy X: " + enemyX);
                 if((i.getX() >= enemyX && i.getX() <= enemyXSpan || i.getX() + i.getW() >= enemyX && i.getX() + i.getW() <= enemyXSpan)&&(i.getY() >= enemyY && i.getY() <= enemyYSpan || i.getY() + i.getH() >= enemyY && i.getY() + i. getH() <= enemyYSpan)){                   
                     return false;
                 } else if((i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
@@ -117,7 +118,13 @@ public class LevelOne extends GameScreen{
                 } 
                 if(i.getX() + i.getW() > 800) {
                     i.setX(800 - i.getW());
-                }                                         
+                }
+                
+                if(i.getX() + i.getW() < enemyX) {
+                    enemyX -= 2;
+                } else if(i.getX() > enemyX) {
+                    enemyX += 2;
+                }
             }
             
         }
