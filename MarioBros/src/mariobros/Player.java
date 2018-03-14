@@ -1,5 +1,6 @@
 package mariobros;
 
+import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
 public class Player extends GameObject{
@@ -7,6 +8,7 @@ public class Player extends GameObject{
     private int velocityX;
     private int velocityY;
     private boolean collision, collideAtAll;
+    ArrayList<Boolean> collides;
     
 
     public Player(int posX, int posY, int width, int height, Color c){

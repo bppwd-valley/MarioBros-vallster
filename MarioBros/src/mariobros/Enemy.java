@@ -10,7 +10,7 @@ public class Enemy extends GameObject{
         super(posX, posY, width, height, c);
         
         
-      //hi d  
+ 
     }
     
     @Override
