@@ -113,8 +113,9 @@ public class LevelOne extends GameScreen{
                     ((Player) i).setCollision(true);
                 } else {
                     ((Player) i).setCollision(false);
-                    ((Player) i).fall();
                 }
+                collides.add(((Player) i).getCollision());
+                
                 if(i.getY() + i.getH() > 800) {
                     i.setY(800 - i.getH());
                 } 
