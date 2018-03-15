@@ -18,6 +18,7 @@ public class LevelOne extends GameScreen{
         objects.add(player);
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
+        objects.add(new Platform(50, 200, 100, 50, Color.BLACK));
         isColliding = new ArrayList();
     }
     
@@ -111,13 +112,13 @@ public class LevelOne extends GameScreen{
         }
         for (GameObject i : objects){
             if (i instanceof Player){
-                System.out.println("Player X: " + i.getX() + "  " + "Enemy X: " + enemyX);
+                System.out.println("Player X: " + i.getX() + "  " + "Enemy X: " + enemyX + "Player Collision: " + ((Player) i).getCollision());
                 if((i.getX() >= enemyX && i.getX() <= enemyXSpan || i.getX() + i.getW() >= enemyX && i.getX() + i.getW() <= enemyXSpan)&&(i.getY() >= enemyY && i.getY() <= enemyYSpan || i.getY() + i.getH() >= enemyY && i.getY() + i. getH() <= enemyYSpan)){                   
                     return false;
                 }
                 if((i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
                     ((Player) i).setCollision(true);
-                    
+                    System.out.println("woooooo");
                 }else {
                     ((Player) i).setCollision(false);
                     System.out.println("HELLO?");
