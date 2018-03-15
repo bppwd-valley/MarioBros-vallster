@@ -117,9 +117,11 @@ public class LevelOne extends GameScreen{
                 }
                 if((i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
                     isColliding.add(Boolean.TRUE);
-                }else if(!(i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
-                    isColliding.remove(isColliding.lastIndexOf(Boolean.TRUE));
-                    isColliding.add(Boolean.FALSE);
+                }else {
+                    if (isColliding.contains(Boolean.TRUE)){
+                        isColliding.remove(isColliding.lastIndexOf(Boolean.TRUE));
+                    }
+                    System.out.println("HELLO?");
                 }
                 if(isColliding.contains(Boolean.TRUE)){
                     ((Player) i).setCollideAtAll(true);
@@ -136,7 +138,9 @@ public class LevelOne extends GameScreen{
                 }
                 
             }
-            
+            for (Boolean x : isColliding){
+                System.out.println(x);
+            }
         }
         return true;
     }
