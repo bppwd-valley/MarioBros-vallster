@@ -7,7 +7,7 @@ public class Player extends GameObject{
     
     private int velocityX;
     private int velocityY;
-    private boolean collision, collideAtAll;
+    private boolean collision;
 
     public Player(int posX, int posY, int width, int height, Color c){
         super(posX, posY, width, height, c);
@@ -41,19 +41,11 @@ public class Player extends GameObject{
         return collision;
     }
     
-    public void setCollideAtAll (boolean value){
-        collideAtAll = value;
-    }
-    
-    public boolean getCollideAtAll (){
-        return collideAtAll;
-    }
-    
     @Override
     public void update() {
         move();
         jump();
-        if (collideAtAll == false)
+        if (collision == false)
             fall();
     }
     

@@ -40,7 +40,7 @@ public class LevelOne extends GameScreen{
         if (event.getCode() == KeyCode.SPACE){
             for(GameObject i : objects){
                 if (i instanceof Player){
-                    if (((Player) i).getCollideAtAll() == true)
+                    if (((Player) i).getCollision() == true)
                         ((Player) i).setVelY(-10);
                     else
                         ((Player) i).setVelY(0);
@@ -116,16 +116,18 @@ public class LevelOne extends GameScreen{
                     return false;
                 }
                 if((i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
-                    isColliding.add(Boolean.TRUE);
+                    ((Player) i).setCollision(true);
+                    
                 }else {
-                    if (isColliding.contains(Boolean.TRUE)){
-                        isColliding.remove(isColliding.lastIndexOf(Boolean.TRUE));
-                    }
+                    ((Player) i).setCollision(false);
                     System.out.println("HELLO?");
                 }
-                if(isColliding.contains(Boolean.TRUE)){
-                    ((Player) i).setCollideAtAll(true);
-                    
+                if(((Player) i).getCollision() == true){
+                    if(!isColliding.contains(Boolean.TRUE)){
+                        isColliding.add(Boolean.TRUE);
+                    }
+                }else {
+                    isColliding.remove(0);
                 }
                 if(i.getY() + i.getH() > 800) {
                     i.setY(800 - i.getH());
