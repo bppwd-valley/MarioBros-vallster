@@ -135,14 +135,6 @@ public class LevelOne extends GameScreen{
                     i.setX(800 - i.getW());
                 }
                 
-                if(i.getX() + i.getW() < enemyX) {
-                    enemyX -= 2;
-                } else if(i.getX() > enemyX) {
-                    enemyX += 2;
-                }
-                for (Boolean x : isColliding){
-                    System.out.println(x);
-                }
             }
             
         }
