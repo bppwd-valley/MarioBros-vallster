@@ -112,7 +112,7 @@ public class LevelOne extends GameScreen{
         }
         for (GameObject i : objects){
             if (i instanceof Player){
-                System.out.println("Player X: " + i.getX() + "  " + "Enemy X: " + enemyX + "Player Collision: " + ((Player) i).getCollision());
+                System.out.println("Player X: " + i.getX() + "  " + "Enemy X: " + enemyX + " Player Collision: " + ((Player) i).getCollision());
                 if((i.getX() >= enemyX && i.getX() <= enemyXSpan || i.getX() + i.getW() >= enemyX && i.getX() + i.getW() <= enemyXSpan)&&(i.getY() >= enemyY && i.getY() <= enemyYSpan || i.getY() + i.getH() >= enemyY && i.getY() + i. getH() <= enemyYSpan)){                   
                     return false;
                 }
