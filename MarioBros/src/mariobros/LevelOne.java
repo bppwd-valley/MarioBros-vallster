@@ -109,6 +109,7 @@ public class LevelOne extends GameScreen{
                 platformXSpan = platformX + i.getW();
                 platformY = i.getY();
                 platformYSpan = platformY + i.getH();
+                System.out.println(i.getY());
             }
         }
         for (GameObject i : objects){
