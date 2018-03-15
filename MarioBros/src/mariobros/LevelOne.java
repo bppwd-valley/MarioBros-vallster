@@ -76,6 +76,7 @@ public class LevelOne extends GameScreen{
         if (event.getCode() == KeyCode.SPACE){
             for(GameObject i : objects){
                 if (i instanceof Player){
+                    ((Player) i).setCollision(false);
                     ((Player) i).setVelY(0);
                 }
             }
@@ -112,7 +113,7 @@ public class LevelOne extends GameScreen{
         }
         for (GameObject i : objects){
             if (i instanceof Player){
-                System.out.println("Player X: " + i.getX() + "  " + "Enemy X: " + enemyX + " Player Collision: " + ((Player) i).getCollision());
+                System.out.println("Player Y: " + i.getY() + " Player Collision: " + ((Player) i).getCollision());
                 if((i.getX() >= enemyX && i.getX() <= enemyXSpan || i.getX() + i.getW() >= enemyX && i.getX() + i.getW() <= enemyXSpan)&&(i.getY() >= enemyY && i.getY() <= enemyYSpan || i.getY() + i.getH() >= enemyY && i.getY() + i. getH() <= enemyYSpan)){                   
                     return false;
                 }
@@ -127,9 +128,11 @@ public class LevelOne extends GameScreen{
                 if(((Player) i).getCollision() == true){
                     if(!isColliding.contains(Boolean.TRUE)){
                         isColliding.add(Boolean.TRUE);
+                        System.out.println("Added True");
                     }
                 }else if(((Player) i).getCollision() == false && !isColliding.isEmpty()) {
                     isColliding.remove(0);
+                    System.out.println("Added False");
                 }
                 if(i.getY() + i.getH() > 800) {
                     i.setY(800 - i.getH());
