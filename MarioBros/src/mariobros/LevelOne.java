@@ -14,7 +14,7 @@ public class LevelOne extends GameScreen{
     
     public LevelOne(){
         super();
-        Player player = new Player(50, 700, 50, 50, Color.BLUE);
+        Player player = new Player(50, 0, 50, 50, Color.BLUE);
         objects.add(player);
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
@@ -126,7 +126,7 @@ public class LevelOne extends GameScreen{
                     if(!isColliding.contains(Boolean.TRUE)){
                         isColliding.add(Boolean.TRUE);
                     }
-                }else {
+                }else if(((Player) i).getCollision() == false && isColliding.size() != 0) {
                     isColliding.remove(0);
                 }
                 if(i.getY() + i.getH() > 800) {
