@@ -53,7 +53,7 @@ public class Player extends GameObject{
     public void update() {
         move();
         jump();
-        if (collision == false)
+        if (collideAtAll == false)
             fall();
     }
     

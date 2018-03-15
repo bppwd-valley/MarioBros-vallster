@@ -23,7 +23,7 @@ public class Enemy extends GameObject{
     
     @Override
     public void update() {
-       move();
+
     }
     
 }
