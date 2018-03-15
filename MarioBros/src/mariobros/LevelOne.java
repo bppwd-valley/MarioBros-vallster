@@ -112,14 +112,15 @@ public class LevelOne extends GameScreen{
         }
         for (GameObject i : objects){
             if (i instanceof Player){
-                System.out.println("Player X: " + i.getX() + "  " + "Enemy X: " + enemyX + "Player Collision: " + ((Player) i).getCollision());
+                System.out.println("Player X: " + i.getX() + "  " + "Enemy X: " + enemyX + " Player Collision: " + ((Player) i).getCollision());
                 if((i.getX() >= enemyX && i.getX() <= enemyXSpan || i.getX() + i.getW() >= enemyX && i.getX() + i.getW() <= enemyXSpan)&&(i.getY() >= enemyY && i.getY() <= enemyYSpan || i.getY() + i.getH() >= enemyY && i.getY() + i. getH() <= enemyYSpan)){                   
                     return false;
                 }
                 if((i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
                     ((Player) i).setCollision(true);
                     System.out.println("woooooo");
-                }else {
+                }
+                if(!(i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
                     ((Player) i).setCollision(false);
                     System.out.println("HELLO?");
                 }
@@ -127,7 +128,7 @@ public class LevelOne extends GameScreen{
                     if(!isColliding.contains(Boolean.TRUE)){
                         isColliding.add(Boolean.TRUE);
                     }
-                }else if(((Player) i).getCollision() == false && isColliding.size() != 0) {
+                }else if(((Player) i).getCollision() == false && !isColliding.isEmpty()) {
                     isColliding.remove(0);
                 }
                 if(i.getY() + i.getH() > 800) {
