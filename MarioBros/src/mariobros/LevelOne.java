@@ -103,7 +103,8 @@ public class LevelOne extends GameScreen{
                 }
                 if(!player.isColliding(i)){
                     player.setCollision(false);
-                } if(player.getCollision() == true){
+                } 
+                if(player.getCollision() == true){
                     System.out.println("Inital Collision Detected");
                 }
                 else if(player.getCollision() == false) {
