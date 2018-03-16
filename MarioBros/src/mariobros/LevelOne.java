@@ -1,8 +1,5 @@
 package mariobros;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -10,8 +7,7 @@ import javafx.scene.paint.Color;
 public class LevelOne extends GameScreen{
     
     int enemyX, enemyXSpan, enemyY, enemyYSpan, platformX, platformXSpan, platformY, platformYSpan;
-    ArrayList<Boolean> isColliding;
-    Player player ;
+    Player player;
     
     public LevelOne(){
         super();
@@ -20,7 +16,6 @@ public class LevelOne extends GameScreen{
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
         objects.add(new Platform(50, 200, 100, 50, Color.BLACK));       
-        isColliding = new ArrayList();
     }
     
     @Override
@@ -91,38 +86,25 @@ public class LevelOne extends GameScreen{
     @Override
     public boolean update(){
         super.update();
-        
-
         for (GameObject i : objects){
             if (i instanceof Enemy){
-                enemyX = i.getX();
-                enemyXSpan = enemyX + i.getW();
-                enemyY = i.getY();
-                enemyYSpan = enemyY + i.getH();
+
                 if (i.getX() <= 0)
                     ((Enemy) i).reset();
-                if((player.getX() >= enemyX && player.getX() <= enemyXSpan || player.getX() + player.getW() >= enemyX && player.getX() + player.getW() <= enemyXSpan)&&(player.getY() >= enemyY && player.getY() <= enemyYSpan || player.getY() + player.getH() >= enemyY && player.getY() + player.getH() <= enemyYSpan)){                   
+                if(player.isColliding(i)){                   
                     return false;
                 }
             }
             else if (i instanceof Platform){
-                platformX = i.getX();
-                platformXSpan = platformX + i.getW();
-                platformY = i.getY();
-                platformYSpan = platformY + i.getH();
-                if((player.getX() >= platformX && player.getX() <= platformXSpan || player.getX() + player.getW() >= platformX && player.getX() + player.getW() <= platformXSpan)&&(player.getY() >= platformY && player.getY() <= platformYSpan || player.getY() + player.getH() >= platformY && player.getY() + player.getH() <= platformYSpan)){
+                if(player.isColliding(i)){
                     player.setCollision(true);
                 }
-                if(!(player.getX() >= platformX && player.getX() <= platformXSpan || player.getX() + player.getW() >= platformX && player.getX() + player.getW() <= platformXSpan)&&(player.getY() >= platformY && player.getY() <= platformYSpan || player.getY() + player.getH() >= platformY && player.getY() + player.getH() <= platformYSpan)){
+                if(!player.isColliding(i)){
                     player.setCollision(false);
                 } if(player.getCollision() == true){
-                    if(!isColliding.contains(Boolean.TRUE)){
-                        isColliding.add(Boolean.TRUE);
-                        System.out.println("Inital Collision Detected");
-                    }
+                    System.out.println("Inital Collision Detected");
                 }
-                else if(player.getCollision() == false && !isColliding.isEmpty()) {
-                    isColliding.remove(0);
+                else if(player.getCollision() == false) {
                     System.out.println("Initial Falling");
                 }
             }
