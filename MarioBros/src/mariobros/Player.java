@@ -23,7 +23,7 @@ public class Player extends GameObject{
     }
      
     public void fall(){
-        y += 1;
+        y += 2;
     }
     public void setVelY (int value){
         velocityY = value;
