@@ -8,6 +8,7 @@ public class LevelOne extends GameScreen{
     
     int enemyX, enemyXSpan, enemyY, enemyYSpan, platformX, platformXSpan, platformY, platformYSpan;
     Player player;
+    boolean pressedOnce;
     
     public LevelOne(){
         super();
@@ -16,11 +17,12 @@ public class LevelOne extends GameScreen{
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
         objects.add(new Platform(50, 200, 100, 50, Color.BLACK)); 
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
-              
+        pressedOnce = false;
     }
     
     @Override
     public void processKey(KeyEvent event) {
+        
         if (event.getCode() == KeyCode.A){
             player.setVelX(-5);
         }
@@ -28,9 +30,10 @@ public class LevelOne extends GameScreen{
             player.setVelX(5);
         }
         if (event.getCode() == KeyCode.SPACE){
-            if (player.getCollision() == true)
+            if (player.getCollision() == true && pressedOnce == false) {
+                pressedOnce = true;
                 player.setVelY(-10);
-            else
+            } else
                 player.setVelY(0);
         }
     }
@@ -45,6 +48,7 @@ public class LevelOne extends GameScreen{
             player.setVelX(0);
         }
         if (event.getCode() == KeyCode.SPACE){
+            pressedOnce = false;
             player.setVelY(0);
         }
      }
