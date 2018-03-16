@@ -88,11 +88,7 @@ public class LevelOne extends GameScreen{
                 }
                 if(!player.isColliding(i)){
                     player.setCollision(false);
-<<<<<<< HEAD
                     System.out.println("Not Colliding " + player.getY() + " " + i.getY());
-=======
-                    System.out.println("No Collision");
->>>>>>> 6f2ec714df26fdf3b0fe8070af9746f967011b2d
                 }
             }
             else if (i instanceof Player){ 
