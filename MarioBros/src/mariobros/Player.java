@@ -23,8 +23,13 @@ public class Player extends GameObject{
     }
      
     public void fall(){
-        y += 2;
+        y += 3;
     }
+    
+    public void stopFall(){
+        y += 0;
+    }
+    
     public void setVelY (int value){
         velocityY = value;
     }
@@ -45,10 +50,6 @@ public class Player extends GameObject{
     public void update() {
         move();
         jump();
-        if (collision == false){
-            fall();
-            //System.out.println("Actually Falling");
-        }
     }
     
 }

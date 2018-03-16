@@ -39,38 +39,20 @@ public class LevelOne extends GameScreen{
     @Override
     public void finalizeKey(KeyEvent event) {
         if (event.getCode() == KeyCode.A){
-           for(GameObject i : objects){
-               if (i instanceof Player){
-                   ((Player) i).setVelX(0);
-               }
-           }
+            player.setVelX(0);
         }
         if (event.getCode() == KeyCode.D){
-           for(GameObject i : objects){
-               if (i instanceof Player){
-                   ((Player) i).setVelX(0);
-               }
-           }
+            player.setVelX(0);
         }
         if (event.getCode() == KeyCode.SPACE){
-            for(GameObject i : objects){
-                if (i instanceof Player){
-                    ((Player) i).setCollision(false);
-                    ((Player) i).setVelY(0);
-                }
-            }
-        }
-        if (event.getCode() == KeyCode.DOWN){
-            for(GameObject i : objects){
-               if (i instanceof Player){
-                   
-               }
-           }
+            player.setVelY(0);
         }
      }
     @Override
     public boolean update(){
         super.update();
+        boolean sf = true;
+        player.setCollision(false);
         for (GameObject i : objects){
             if (i instanceof Enemy){
 
@@ -83,26 +65,25 @@ public class LevelOne extends GameScreen{
             else if (i instanceof Platform){
                 if(player.isColliding(i)){
                     player.setCollision(true);
-                    System.out.println("Collision Detected " + player.getY() + " " + i.getY());
+                    sf = false;
+                    System.out.println(sf);
                 }
-                if(!player.isColliding(i)){
-                    player.setCollision(false);
-                    System.out.println("Not Colliding " + player.getY() + " " + i.getY());
-                }
-            }
-            else if (i instanceof Player){ 
-                if(i.getY() + i.getH() > 800) {
-                    i.setY(800 - i.getH());
-                } 
-                if(i.getX() < 10) {
-                    i.setX(10);
-                } 
-                if(i.getX() + i.getW() > 800) {
-                    i.setX(800 - i.getW());
-                }
-                
-            }
+            }    
         }
+        if(player.getY() + player.getH() > 800) {
+            player.setY(800 - player.getH());
+        } 
+        if(player.getX() < 10) {
+            player.setX(10);
+        } 
+        if(player.getX() + player.getW() > 800) {
+            player.setX(800 - player.getW());
+        }
+        System.out.println("END:" + sf);
+        if(sf)
+            player.fall();
+        else
+            player.stopFall();
         return true;
     }
     

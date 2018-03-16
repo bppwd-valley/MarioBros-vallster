@@ -1,5 +1,6 @@
 package mariobros;
 
+import javafx.geometry.BoundingBox;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -31,11 +32,11 @@ public abstract class GameObject {
         }
 
     }
-    public BBox bbox(){
-        return new BBox(x, x + w, y, y + h);
+    public BoundingBox bbox(){
+        return new BoundingBox(x, y, w, h);
     }
     public boolean isColliding(GameObject other){
-        return bbox().isColliding(other.bbox());
+        return bbox().intersects(other.bbox());
     }
     public void setX(int value){
         x = value;
