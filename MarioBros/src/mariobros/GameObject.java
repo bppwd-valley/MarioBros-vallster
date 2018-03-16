@@ -31,7 +31,12 @@ public abstract class GameObject {
         }
 
     }
-    
+    public BBox bbox(){
+        return new BBox(x, x + w, y, y + h);
+    }
+    public boolean isColliding(GameObject other){
+        return bbox().isColliding(other.bbox());
+    }
     public void setX(int value){
         x = value;
     }
