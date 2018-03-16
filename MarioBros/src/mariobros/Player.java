@@ -47,7 +47,7 @@ public class Player extends GameObject{
         jump();
         if (collision == false){
             fall();
-            System.out.println("Actually Falling");
+            //System.out.println("Actually Falling");
         }
     }
     

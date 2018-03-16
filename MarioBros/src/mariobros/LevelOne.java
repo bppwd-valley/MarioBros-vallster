@@ -84,7 +84,6 @@ public class LevelOne extends GameScreen{
                 if(player.isColliding(i)){
                     player.setCollision(true);
                     System.out.println("Collision Detected " + player.getY() + " " + i.getY());
-                    
                 }
                 if(!player.isColliding(i)){
                     player.setCollision(false);
