@@ -23,7 +23,7 @@ public class Player extends GameObject{
     }
      
     public void fall(){
-        y += 3;
+        y += 5;
     }
     
     public void stopFall(){

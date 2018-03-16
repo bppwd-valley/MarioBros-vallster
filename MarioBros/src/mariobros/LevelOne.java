@@ -15,7 +15,11 @@ public class LevelOne extends GameScreen{
         player = new Player(50, 0, 50, 50, Color.BLUE);
         objects.add(player);
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
-        objects.add(new Platform(50, 200, 100, 50, Color.BLACK)); 
+        objects.add(new Platform(80, 650, 100, 50, Color.BLACK));
+        objects.add(new Platform(160, 500, 100, 50, Color.BLACK)); 
+        objects.add(new Platform(320, 450, 100, 50, Color.BLACK));
+        objects.add(new Platform(400, 300, 100, 50, Color.BLACK)); 
+        objects.add(new Platform(500, 450, 100, 50, Color.BLACK)); 
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
         pressedOnce = false;
     }
@@ -33,8 +37,6 @@ public class LevelOne extends GameScreen{
             if (player.getCollision() == true && pressedOnce == false) {
                 pressedOnce = true;
                 player.setVelY(-10);
-            } else
-                player.setVelY(0);
         }
     }
     
@@ -59,9 +61,16 @@ public class LevelOne extends GameScreen{
         player.setCollision(false);
         for (GameObject i : objects){
             if (i instanceof Enemy){
-                ((Enemy) i).x -= 3;
-                if (i.getX() <= 0)
-                    ((Enemy) i).reset();
+                if (player.getX() < i.getX()){
+                    ((Enemy) i).x += 1;
+                }else {
+                    ((Enemy) i).x -= 1;
+                }
+                if (player.getY() < i.getY()){
+                    ((Enemy) i).y += 1;
+                }else {
+                    ((Enemy) i).y -= 1;
+                }
                 if(player.isColliding(i)){                   
                     return false;
                 }
