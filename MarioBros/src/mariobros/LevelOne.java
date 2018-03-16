@@ -42,10 +42,8 @@ public class LevelOne extends GameScreen{
         if (event.getCode() == KeyCode.SPACE){
             for(GameObject i : objects){
                 if (i instanceof Player){
-                    if (((Player) i).getCollision() == true)
-                        ((Player) i).setVelY(-10);
-                    else
-                        ((Player) i).setVelY(0);
+//                    if (((Player) i).getCollision() == true)
+//                        ((Player) i).setVelY(-10);
                }
             }
         }
@@ -129,7 +127,13 @@ public class LevelOne extends GameScreen{
                 }
             }
             else if (i instanceof Player){
-               
+                
+                if(((Player) i).getCollision() == true) {
+                    ((Player) i).setVelY(0);
+                } else {
+                    ((Player) i).setVelY(-10);
+                }
+                
                 if(i.getY() + i.getH() > 800) {
                     i.setY(800 - i.getH());
                 } 
