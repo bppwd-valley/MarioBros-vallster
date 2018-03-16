@@ -11,10 +11,11 @@ public class LevelOne extends GameScreen{
     
     int enemyX, enemyXSpan, enemyY, enemyYSpan, platformX, platformXSpan, platformY, platformYSpan;
     ArrayList<Boolean> isColliding;
+    Player player ;
     
     public LevelOne(){
         super();
-        Player player = new Player(50, 0, 50, 50, Color.BLUE);
+        player = new Player(50, 0, 50, 50, Color.BLUE);
         objects.add(player);
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
@@ -102,34 +103,33 @@ public class LevelOne extends GameScreen{
                 enemyYSpan = enemyY + i.getH();
                 if (i.getX() <= 0)
                     ((Enemy) i).reset();
+                if((player.getX() >= enemyX && player.getX() <= enemyXSpan || player.getX() + player.getW() >= enemyX && player.getX() + player.getW() <= enemyXSpan)&&(player.getY() >= enemyY && player.getY() <= enemyYSpan || player.getY() + player.getH() >= enemyY && player.getY() + player.getH() <= enemyYSpan)){                   
+                    return false;
+                }
             }
             else if (i instanceof Platform){
                 platformX = i.getX();
                 platformXSpan = platformX + i.getW();
                 platformY = i.getY();
                 platformYSpan = platformY + i.getH();
-                System.out.println(i.getY());
-            }
-            else if (i instanceof Player){
-                //System.out.println("Player Y: " + i.getY() + " Player Collision: " + ((Player) i).getCollision());
-                if((i.getX() >= enemyX && i.getX() <= enemyXSpan || i.getX() + i.getW() >= enemyX && i.getX() + i.getW() <= enemyXSpan)&&(i.getY() >= enemyY && i.getY() <= enemyYSpan || i.getY() + i.getH() >= enemyY && i.getY() + i. getH() <= enemyYSpan)){                   
-                    return false;
+                if((player.getX() >= platformX && player.getX() <= platformXSpan || player.getX() + player.getW() >= platformX && player.getX() + player.getW() <= platformXSpan)&&(player.getY() >= platformY && player.getY() <= platformYSpan || player.getY() + player.getH() >= platformY && player.getY() + player.getH() <= platformYSpan)){
+                    player.setCollision(true);
                 }
-                if((i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
-                    ((Player) i).setCollision(true);
-                }
-                if(!(i.getX() >= platformX && i.getX() <= platformXSpan || i.getX() + i.getW() >= platformX && i.getX() + i.getW() <= platformXSpan)&&(i.getY() >= platformY && i.getY() <= platformYSpan || i.getY() + i.getH() >= platformY && i.getY() + i. getH() <= platformYSpan)){
-                    ((Player) i).setCollision(false);
-                }
-                if(((Player) i).getCollision() == true){
+                if(!(player.getX() >= platformX && player.getX() <= platformXSpan || player.getX() + player.getW() >= platformX && player.getX() + player.getW() <= platformXSpan)&&(player.getY() >= platformY && player.getY() <= platformYSpan || player.getY() + player.getH() >= platformY && player.getY() + player.getH() <= platformYSpan)){
+                    player.setCollision(false);
+                } if(player.getCollision() == true){
                     if(!isColliding.contains(Boolean.TRUE)){
                         isColliding.add(Boolean.TRUE);
                         System.out.println("Inital Collision Detected");
                     }
-                }else if(((Player) i).getCollision() == false && !isColliding.isEmpty()) {
+                }
+                else if(player.getCollision() == false && !isColliding.isEmpty()) {
                     isColliding.remove(0);
                     System.out.println("Initial Falling");
                 }
+            }
+            else if (i instanceof Player){
+               
                 if(i.getY() + i.getH() > 800) {
                     i.setY(800 - i.getH());
                 } 
