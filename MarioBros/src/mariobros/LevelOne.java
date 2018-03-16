@@ -17,8 +17,8 @@ public class LevelOne extends GameScreen{
         Player player = new Player(50, 0, 50, 50, Color.BLUE);
         objects.add(player);
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
-        objects.add(new Platform(50, 200, 100, 50, Color.BLACK));
-        objects.add(new Platform(10, 750, 800, 50, Color.BLACK));       
+        objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
+        objects.add(new Platform(50, 200, 100, 50, Color.BLACK));       
         isColliding = new ArrayList();
     }
     
