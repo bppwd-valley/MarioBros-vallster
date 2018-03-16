@@ -45,8 +45,10 @@ public class Player extends GameObject{
     public void update() {
         move();
         jump();
-        if (collision == false)
+        if (collision == false){
             fall();
+            System.out.println("Actually Falling");
+        }
     }
     
 }
