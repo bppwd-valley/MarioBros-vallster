@@ -55,7 +55,7 @@ public class LevelOne extends GameScreen{
         player.setCollision(false);
         for (GameObject i : objects){
             if (i instanceof Enemy){
-
+                ((Enemy) i).x -= 3;
                 if (i.getX() <= 0)
                     ((Enemy) i).reset();
                 if(player.isColliding(i)){                   
@@ -66,7 +66,6 @@ public class LevelOne extends GameScreen{
                 if(player.isColliding(i)){
                     player.setCollision(true);
                     sf = false;
-                    System.out.println(sf);
                 }
             }    
         }
@@ -79,7 +78,6 @@ public class LevelOne extends GameScreen{
         if(player.getX() + player.getW() > 800) {
             player.setX(800 - player.getW());
         }
-        System.out.println("END:" + sf);
         if(sf)
             player.fall();
         else
