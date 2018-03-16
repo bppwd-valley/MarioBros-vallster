@@ -21,35 +21,19 @@ public class LevelOne extends GameScreen{
     @Override
     public void processKey(KeyEvent event) {
         if (event.getCode() == KeyCode.A){
-            for(GameObject i : objects){
-                if (i instanceof Player){
-                    ((Player) i).setVelX(-5);
-                }
-            }
+            player.setVelX(-5);
         }
         if (event.getCode() == KeyCode.D){
-            for(GameObject i : objects){
-                if (i instanceof Player){
-                    ((Player) i).setVelX(5);
-                }
-            }
+            player.setVelX(5);
         }
         if (event.getCode() == KeyCode.SPACE){
-            for(GameObject i : objects){
-                if (i instanceof Player){
-//                    if (((Player) i).getCollision() == true)
-//                        ((Player) i).setVelY(-10);
-               }
-            }
-        }
-        if (event.getCode() == KeyCode.DOWN){
-            for(GameObject i : objects){
-                if (i instanceof Player){
-                    
-                }
-            }
+            if (player.getCollision() == true)
+                player.setVelY(-10);
+            else
+                player.setVelY(0);
         }
     }
+    
     
     @Override
     public void finalizeKey(KeyEvent event) {
@@ -109,14 +93,7 @@ public class LevelOne extends GameScreen{
                     System.out.println("Initial Falling");
                 }
             }
-            else if (i instanceof Player){
-                
-                if(((Player) i).getCollision() == true) {
-                    ((Player) i).setVelY(0);
-                } else {
-                    ((Player) i).setVelY(-10);
-                }
-                
+            else if (i instanceof Player){ 
                 if(i.getY() + i.getH() > 800) {
                     i.setY(800 - i.getH());
                 } 
