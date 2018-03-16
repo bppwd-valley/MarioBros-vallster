@@ -37,6 +37,7 @@ public class LevelOne extends GameScreen{
             if (player.getCollision() == true && pressedOnce == false) {
                 pressedOnce = true;
                 player.setVelY(-10);
+            }
         }
     }
     
@@ -62,14 +63,14 @@ public class LevelOne extends GameScreen{
         for (GameObject i : objects){
             if (i instanceof Enemy){
                 if (player.getX() < i.getX()){
-                    ((Enemy) i).x += 1;
-                }else {
                     ((Enemy) i).x -= 1;
+                }else {
+                    ((Enemy) i).x += 1;
                 }
                 if (player.getY() < i.getY()){
-                    ((Enemy) i).y += 1;
-                }else {
                     ((Enemy) i).y -= 1;
+                }else {
+                    ((Enemy) i).y += 1;
                 }
                 if(player.isColliding(i)){                   
                     return false;
