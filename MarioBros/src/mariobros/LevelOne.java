@@ -36,7 +36,7 @@ public class LevelOne extends GameScreen{
         }
         if (event.getCode() == KeyCode.SPACE){
             if (player.getCollision() == true)
-                player.setVelY(-100);
+                player.setVelY(-10);
         }
     }
     
@@ -58,12 +58,12 @@ public class LevelOne extends GameScreen{
     public boolean update(){
         super.update();
         boolean sf = true;        
-        player.setCollision(false);player.setCollisionTop(false);player.setCollisionBottom(false);player.setCollisionLeft(false);player.setCollisionRight(false);
-        if (player.getCollision() == false) {
-            player.setVelY(0);
-        } else {
-            player.setCollision(true);
-        }
+        player.setCollision(false);
+//        if (player.getCollision() == false) {
+//            player.setVelY(0);
+//        } else {
+//            player.setCollision(true);
+//        }
         
         for (GameObject i : objects){
             if (i instanceof Enemy){
@@ -77,19 +77,15 @@ public class LevelOne extends GameScreen{
                     sf = false;
                 }
                 if(player.isCollidingBottom(i)){
-                    player.setCollisionBottom(true);
                     sf = false;
                 }
                 if(player.isCollidingTop(i)){
-                    player.setCollisionTop(true);
                     sf = true;
                 }
                 if(player.isCollidingLeft(i)){
-                    player.setCollisionLeft(true);
                     sf = true;
                 }
                 if(player.isCollidingRight(i)){
-                    player.setCollisionRight(true);
                     sf = true;
                 }
                 
