@@ -34,10 +34,8 @@ public class LevelOne extends GameScreen{
             player.setVelX(5);
         }
         if (event.getCode() == KeyCode.SPACE){
-            if (player.getCollision() == true && pressedOnce == false) {
-                pressedOnce = true;
-                player.setVelY(-10);
-            }
+            if (player.getCollision() == true)
+                player.setVelY(-100);
         }
     }
     
@@ -60,6 +58,11 @@ public class LevelOne extends GameScreen{
         super.update();
         boolean sf = true;
         player.setCollision(false);
+        if (player.getCollision() == false) {
+            player.setVelY(0);
+        } else {
+            player.setCollision(true);
+        }
         for (GameObject i : objects){
             if (i instanceof Enemy){
                 if(player.isColliding(i)){                   
