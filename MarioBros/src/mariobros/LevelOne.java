@@ -21,6 +21,7 @@ public class LevelOne extends GameScreen{
         objects.add(new Platform(400, 300, 100, 50, Color.BLACK)); 
         objects.add(new Platform(500, 450, 100, 50, Color.BLACK)); 
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
+        objects.add(new Coin(400, 710, 30, 30, Color.YELLOW));
         pressedOnce = false;
     }
     
