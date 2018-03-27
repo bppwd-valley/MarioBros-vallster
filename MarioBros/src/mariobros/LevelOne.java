@@ -1,5 +1,7 @@
 package mariobros;
 
+import java.util.HashSet;
+import java.util.Set;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -115,6 +117,7 @@ public class LevelOne extends GameScreen{
     @Override
     public void draw(GraphicsContext gc){
         super.draw(gc);
+        gc.setFill(Color.BLACK);
         gc.fillText("Coins: " + coins, 50, 50);
     }
 }
