@@ -38,7 +38,7 @@ public class Player extends GameObject{
         velocityX = value;
     }
     
-    public void setCollision (boolean value){
+    public void setCollision (int side, boolean value){
         collision = value;
     }
     

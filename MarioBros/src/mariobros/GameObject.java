@@ -56,6 +56,22 @@ public abstract class GameObject {
     public boolean isColliding(GameObject other){
         return objBox().intersects(other.objBox());
     }
+    
+    public boolean isCollidingTop(GameObject other){
+        return bottomBox().intersects(other.topBox());
+    }
+    
+    public boolean isCollidingBottom(GameObject other){
+        return topBox().intersects(other.bottomBox());
+    }
+    
+    public boolean isCollidingLeft(GameObject other){
+        return rightBox().intersects(other.leftBox());
+    }
+    
+    public boolean isCollidingRight(GameObject other){
+        return leftBox().intersects(other.rightBox());
+    }
     public void setX(int value){
         x = value;
     }
