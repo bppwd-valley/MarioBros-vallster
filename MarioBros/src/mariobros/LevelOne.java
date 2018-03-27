@@ -115,6 +115,7 @@ public class LevelOne extends GameScreen{
     @Override
     public void draw(GraphicsContext gc){
         super.draw(gc);
+        gc.setFill(Color.BLACK);
         gc.fillText("Coins: " + )
     }
 }
