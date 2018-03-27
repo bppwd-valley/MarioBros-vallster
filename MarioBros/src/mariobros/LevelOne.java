@@ -1,5 +1,6 @@
 package mariobros;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -86,9 +87,13 @@ public class LevelOne extends GameScreen{
                 }
                 if(player.isCollidingRight(i)){
                     sf = true;
+                } 
+            }
+            else if(i instanceof Coin){
+                if(player.isColliding(i)){
+                    coins += 1;
                 }
-                
-            }    
+            }
         }
         if(player.getY() + player.getH() > 800) {
             player.setY(800 - player.getH());
@@ -106,4 +111,9 @@ public class LevelOne extends GameScreen{
         return true;
     }
     
+    @Override
+    public void draw(GraphicsContext gc){
+        super.draw(gc);
+        gc.fillText("Coins: " + )
+    }
 }
