@@ -7,11 +7,16 @@ public class Player extends GameObject{
     
     private int velocityX;
     private int velocityY;
-    private boolean collision;
+    private boolean collision, colliTop, colliBottom, colliRight, colliLeft;
 
     public Player(int posX, int posY, int width, int height, Color c){
         super(posX, posY, width, height, c);
         collision = false;
+        colliTop = false;
+        colliBottom = false;
+        colliRight = false;
+        colliLeft = false;
+        
     }
     
     public void move(){
@@ -38,13 +43,38 @@ public class Player extends GameObject{
         velocityX = value;
     }
     
-    public void setCollision (int side, boolean value){
+    public void setCollision (boolean value){
         collision = value;
+    }
+    public void setCollisionTop (boolean value){
+        colliTop = value;
+    }
+    public void setCollisionBottom (boolean value){
+        colliBottom = value;
+    }
+    public void setCollisionLeft (boolean value){
+        colliLeft = value;
+    }
+    public void setCollisionRight (boolean value){
+        colliRight = value;
     }
     
     public boolean getCollision (){
         return collision;
     }
+    public boolean getCollisionTop (){
+        return colliTop;
+    }
+    public boolean getCollisionBottom (){
+        return colliBottom;
+    }
+    public boolean getCollisionLeft (){
+        return colliLeft;
+    }
+    public boolean getCollisionRight (){
+        return colliRight;
+    }
+    
     
     @Override
     public void update() {
