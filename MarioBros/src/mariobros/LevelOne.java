@@ -62,16 +62,6 @@ public class LevelOne extends GameScreen{
         player.setCollision(false);
         for (GameObject i : objects){
             if (i instanceof Enemy){
-                if (player.getX() < i.getX()){
-                    ((Enemy) i).x -= 1;
-                }else {
-                    ((Enemy) i).x += 1;
-                }
-                if (player.getY() < i.getY()){
-                    ((Enemy) i).y -= 1;
-                }else {
-                    ((Enemy) i).y += 1;
-                }
                 if(player.isColliding(i)){                   
                     return false;
                 }

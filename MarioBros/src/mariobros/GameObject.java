@@ -32,11 +32,18 @@ public abstract class GameObject {
         }
 
     }
-    public BoundingBox bbox(){
+    
+    public BoundingBox objBox(){
         return new BoundingBox(x, y, w, h);
     }
+    
+    public BoundingBox topBox(){
+        return new BoundingBox(x, y, w, 1);
+    }
+    
+    
     public boolean isColliding(GameObject other){
-        return bbox().intersects(other.bbox());
+        return objBox().intersects(other.objBox());
     }
     public void setX(int value){
         x = value;
