@@ -41,6 +41,17 @@ public abstract class GameObject {
         return new BoundingBox(x, y, w, 1);
     }
     
+    public BoundingBox bottomBox(){
+        return new BoundingBox(x, y+h, w, 1);
+    }
+    
+    public BoundingBox rightBox(){
+        return new BoundingBox(x+w, y, 1, h);
+    }
+    
+    public BoundingBox leftBox(){
+        return new BoundingBox(x, y, 1, h);
+    }
     
     public boolean isColliding(GameObject other){
         return objBox().intersects(other.objBox());
