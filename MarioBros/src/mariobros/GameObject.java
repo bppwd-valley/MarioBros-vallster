@@ -98,7 +98,7 @@ public abstract class GameObject {
     
     public int getX(){return x;}
     
-     public int getY(){return y;}
+    public int getY(){return y;}
      
     public int getW(){return w;}
     
