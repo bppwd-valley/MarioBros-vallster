@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 
 public class LevelOne extends GameScreen{
     
-    int enemyX, enemyXSpan, enemyY, enemyYSpan, platformX, platformXSpan, platformY, platformYSpan;
+    int enemyX, enemyXSpan, enemyY, enemyYSpan, platformX, platformXSpan, platformY, platformYSpan, coins;
     Player player;
     boolean pressedOnce;
     
@@ -115,6 +115,6 @@ public class LevelOne extends GameScreen{
     @Override
     public void draw(GraphicsContext gc){
         super.draw(gc);
-        gc.fillText("Coins: " + )
+        gc.fillText("Coins: " + coins, 50, 50);
     }
 }

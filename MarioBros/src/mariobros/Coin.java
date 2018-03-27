@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 
 public class Coin extends GameObject {
 
-    protected int coins;
+    private static int coins;
     
     public Coin(int posX, int posY, int width, int height, Color c){
         
@@ -21,7 +21,6 @@ public class Coin extends GameObject {
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
-        gc.fillText("Coins: " + coins, 50, 50);
     }
     
 }
