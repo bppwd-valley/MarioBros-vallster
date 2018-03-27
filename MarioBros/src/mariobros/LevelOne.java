@@ -56,17 +56,14 @@ public class LevelOne extends GameScreen{
     @Override
     public boolean update(){
         super.update();
-        boolean sf = true;
-//<<<<<<< HEAD
-//        player.setCollision(false);
-//        if (player.getCollision() == false) {
-//            player.setVelY(0);
-//        } else {
-//            player.setCollision(true);
-//        }
-//=======
-//        player.setCollision(false);player.setCollisionTop(false);player.setCollisionBottom(false);player.setCollisionLeft(false);player.setCollisionRight(false);
-//>>>>>>> fddda2cddb2fd81c6d5fd67bbb92b1e3fe6fb94e
+        boolean sf = true;        
+        player.setCollision(false);player.setCollisionTop(false);player.setCollisionBottom(false);player.setCollisionLeft(false);player.setCollisionRight(false);
+        if (player.getCollision() == false) {
+            player.setVelY(0);
+        } else {
+            player.setCollision(true);
+        }
+        
         for (GameObject i : objects){
             if (i instanceof Enemy){
                 if(player.isColliding(i)){                   
