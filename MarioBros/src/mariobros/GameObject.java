@@ -8,7 +8,7 @@ public abstract class GameObject {
     
     protected int x, y, w, h, type;
     protected Color color;
-    protected boolean enabled;
+    protected boolean enabled, colliTop, colliBottom, colliLeft, colliRight;
     GraphicsContext gc;
     
     public GameObject(int posX, int posY, int width, int height, Color c){
@@ -58,19 +58,23 @@ public abstract class GameObject {
     }
     
     public boolean isCollidingTop(GameObject other){
-        return bottomBox().intersects(other.topBox());
-    }
-    
-    public boolean isCollidingBottom(GameObject other){
+        colliTop = topBox().intersects(other.bottomBox());
         return topBox().intersects(other.bottomBox());
     }
     
+    public boolean isCollidingBottom(GameObject other){
+        colliBottom = bottomBox().intersects(other.topBox());
+        return bottomBox().intersects(other.topBox());
+    }
+    
     public boolean isCollidingLeft(GameObject other){
-        return rightBox().intersects(other.leftBox());
+        colliLeft = leftBox().intersects(other.rightBox());
+        return leftBox().intersects(other.rightBox());
     }
     
     public boolean isCollidingRight(GameObject other){
-        return leftBox().intersects(other.rightBox());
+        colliRight = rightBox().intersects(other.leftBox());
+        return rightBox().intersects(other.leftBox());
     }
     public void setX(int value){
         x = value;
