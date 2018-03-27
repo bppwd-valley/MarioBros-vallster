@@ -59,7 +59,7 @@ public class LevelOne extends GameScreen{
     public boolean update(){
         super.update();
         boolean sf = true;
-        player.setCollision(false);
+        player.setCollision(false);player.setCollisionTop(false);player.setCollisionBottom(false);player.setCollisionLeft(false);player.setCollisionRight(false);
         for (GameObject i : objects){
             if (i instanceof Enemy){
                 if(player.isColliding(i)){                   
@@ -71,6 +71,23 @@ public class LevelOne extends GameScreen{
                     player.setCollision(true);
                     sf = false;
                 }
+                if(player.isCollidingBottom(i)){
+                    player.setCollisionBottom(true);
+                    sf = false;
+                }
+                if(player.isCollidingTop(i)){
+                    player.setCollisionTop(true);
+                    sf = true;
+                }
+                if(player.isCollidingLeft(i)){
+                    player.setCollisionLeft(true);
+                    sf = true;
+                }
+                if(player.isCollidingRight(i)){
+                    player.setCollisionRight(true);
+                    sf = true;
+                }
+                
             }    
         }
         if(player.getY() + player.getH() > 800) {
