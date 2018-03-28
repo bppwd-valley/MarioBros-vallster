@@ -18,11 +18,11 @@ public class LevelOne extends GameScreen{
         player = new Player(50, 700, 50, 50, Color.LIGHTBLUE);
         objects.add(player);
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
-        objects.add(new Platform(80, 650, 100, 50, Color.BLACK));objects.add(new Coin(100, 610, 30, 30, Color.YELLOW));
-        objects.add(new Platform(160, 500, 100, 50, Color.BLACK));objects.add(new Coin(180, 460, 30, 30, Color.YELLOW));
-        objects.add(new Platform(320, 450, 100, 50, Color.BLACK));objects.add(new Coin(340, 410, 30, 30, Color.YELLOW));
-        objects.add(new Platform(400, 300, 100, 50, Color.BLACK));objects.add(new Coin(420, 260, 30, 30, Color.YELLOW));
-        objects.add(new Platform(500, 450, 100, 50, Color.BLACK));objects.add(new Coin(520, 410, 30, 30, Color.YELLOW)); 
+        objects.add(new Platform(80, 650, 100, 50, Color.BLACK));objects.add(new Coin(110, 610, 30, 30, Color.YELLOW));
+        objects.add(new Platform(160, 500, 100, 50, Color.BLACK));objects.add(new Coin(190, 460, 30, 30, Color.YELLOW));
+        objects.add(new Platform(320, 450, 100, 50, Color.BLACK));objects.add(new Coin(350, 410, 30, 30, Color.YELLOW));
+        objects.add(new Platform(400, 300, 100, 50, Color.BLACK));objects.add(new Coin(430, 260, 30, 30, Color.YELLOW));
+        objects.add(new Platform(500, 450, 100, 50, Color.BLACK));objects.add(new Coin(530, 410, 30, 30, Color.YELLOW)); 
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
         
         
