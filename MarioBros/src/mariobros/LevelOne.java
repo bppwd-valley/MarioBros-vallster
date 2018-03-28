@@ -9,7 +9,8 @@ import javafx.scene.paint.Color;
 
 public class LevelOne extends GameScreen{
     
-    int enemyX, enemyXSpan, enemyY, enemyYSpan, platformX, platformXSpan, platformY, platformYSpan, coins;
+    int enemyX, enemyXSpan, enemyY, enemyYSpan, platformX, platformXSpan, platformY, platformYSpan;
+    protected int coins;
     Player player;
     boolean pressedOnce;
     
