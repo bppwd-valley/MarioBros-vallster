@@ -95,7 +95,7 @@ public class LevelOne extends GameScreen{
             else if(i instanceof Coin){
                 if(player.isColliding(i)){
                     coins += 1;
-                    i.isEnabled(false);
+                    i.setEnabled(false);
                 }
             }
         }

@@ -105,9 +105,5 @@ public abstract class GameObject {
     public int getH(){return h;}
     
     public Color getColor(){return color;}
-
-    public void isEnabled(boolean b) {
-        enabled = b;
-    }
     
 }
