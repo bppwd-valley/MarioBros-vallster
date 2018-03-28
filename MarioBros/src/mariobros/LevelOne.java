@@ -62,12 +62,6 @@ public class LevelOne extends GameScreen{
         super.update();
         boolean sf = true;        
         player.setCollision(false);
-//        if (player.getCollision() == false) {
-//            player.setVelY(0);
-//        } else {
-//            player.setCollision(true);
-//        }
-        
         for (GameObject i : objects){
             if (i instanceof Enemy){
                 if(player.isColliding(i)){                   
