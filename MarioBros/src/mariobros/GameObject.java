@@ -46,11 +46,11 @@ public abstract class GameObject {
     }
     
     public BoundingBox rightBox(){
-        return new BoundingBox(x+w, y, 1, h);
+        return new BoundingBox(x+w, y+1, 1, h-1);
     }
     
     public BoundingBox leftBox(){
-        return new BoundingBox(x, y, 1, h);
+        return new BoundingBox(x, y+1, 1, h-1);
     }
     
     public boolean isColliding(GameObject other){
@@ -105,5 +105,13 @@ public abstract class GameObject {
     public int getH(){return h;}
     
     public Color getColor(){return color;}
+    
+    public boolean getColliTop(){return colliTop;}
+    
+    public boolean getColliBottom(){return colliBottom;}
+    
+    public boolean getColliLeft(){return colliLeft;}
+    
+    public boolean getColliRight(){return colliRight;}
     
 }

@@ -32,10 +32,10 @@ public class LevelOne extends GameScreen{
     public void processKey(KeyEvent event) {
         
         if (event.getCode() == KeyCode.A){
-            player.setVelX(-5);
+            player.move("Left");
         }
         if (event.getCode() == KeyCode.D){
-            player.setVelX(5);
+            player.move("Right");
         }
         if (event.getCode() == KeyCode.SPACE){
             if (player.getCollision() == true)
@@ -47,10 +47,10 @@ public class LevelOne extends GameScreen{
     @Override
     public void finalizeKey(KeyEvent event) {
         if (event.getCode() == KeyCode.A){
-            player.setVelX(0);
+            player.stopMove();
         }
         if (event.getCode() == KeyCode.D){
-            player.setVelX(0);
+            player.stopMove();
         }
         if (event.getCode() == KeyCode.SPACE){
             pressedOnce = false;
@@ -86,10 +86,10 @@ public class LevelOne extends GameScreen{
                     sf = true;
                 }
                 if(player.isCollidingLeft(i)){
-                    sf = true;
+                    player.stopMove();
                 }
                 if(player.isCollidingRight(i)){
-                    sf = true;
+                    player.stopMove();
                 } 
             }
             else if(i instanceof Coin){

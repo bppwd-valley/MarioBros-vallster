@@ -16,12 +16,22 @@ public class Player extends GameObject{
         colliBottom = false;
         colliRight = false;
         colliLeft = false;
-        
     }
     
-    public void move(){
-        
-        x += velocityX;
+    public void stopMove(){
+        move("Stop");
+    }
+    
+    public void move(String dir){  
+        if (dir == "Right"){
+            setVelX(5);
+        }
+        if (dir == "Left"){
+            setVelX(-5);
+        }
+        if (dir == "Stop"){
+            setVelX(0);
+        }
     }
     
      public void jump(){
@@ -62,7 +72,7 @@ public class Player extends GameObject{
     
     @Override
     public void update() {
-        move();
+        x+=velocityX;
         jump();
     }
     
