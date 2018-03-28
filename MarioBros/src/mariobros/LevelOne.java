@@ -15,16 +15,20 @@ public class LevelOne extends GameScreen{
     
     public LevelOne(){
         super();
-        player = new Player(50, 0, 50, 50, Color.LIGHTBLUE);
+        player = new Player(50, 700, 50, 50, Color.LIGHTBLUE);
         objects.add(player);
         objects.add(new Enemy(800, 700, 50, 50, Color.PINK));
-        objects.add(new Platform(80, 650, 100, 50, Color.BLACK));
-        objects.add(new Platform(160, 500, 100, 50, Color.BLACK)); 
-        objects.add(new Platform(320, 450, 100, 50, Color.BLACK));
-        objects.add(new Platform(400, 300, 100, 50, Color.BLACK)); 
-        objects.add(new Platform(500, 450, 100, 50, Color.BLACK)); 
+        objects.add(new Platform(80, 650, 100, 50, Color.BLACK));objects.add(new Coin(100, 610, 30, 30, Color.YELLOW));
+        objects.add(new Platform(160, 500, 100, 50, Color.BLACK));objects.add(new Coin(180, 460, 30, 30, Color.YELLOW));
+        objects.add(new Platform(320, 450, 100, 50, Color.BLACK));objects.add(new Coin(340, 410, 30, 30, Color.YELLOW));
+        objects.add(new Platform(400, 300, 100, 50, Color.BLACK));objects.add(new Coin(420, 260, 30, 30, Color.YELLOW));
+        objects.add(new Platform(500, 450, 100, 50, Color.BLACK));objects.add(new Coin(520, 410, 30, 30, Color.YELLOW)); 
         objects.add(new Platform(10, 750, 800, 50, Color.BLACK));
-        objects.add(new Coin(400, 710, 30, 30, Color.YELLOW));
+        
+        
+        
+        
+        
         pressedOnce = false;
     }
     
@@ -68,16 +72,16 @@ public class LevelOne extends GameScreen{
                     return false;
                 }
                 if(player.getX() < i.getX()){
-                    ((Enemy) i).x += -2;
+                    ((Enemy) i).x += -1;
                 }
                 if(player.getX() > i.getX()){
-                    ((Enemy) i).x += 2;
+                    ((Enemy) i).x += 1;
                 }
                 if(player.getY() < i.getY()){
-                    ((Enemy) i).y += -2;
+                    ((Enemy) i).y += -1;
                 }
                 if(player.getY() > i.getY()){
-                    ((Enemy) i).y += 2;
+                    ((Enemy) i).y += 1;
                 }
             }
             else if (i instanceof Platform){
@@ -122,6 +126,7 @@ public class LevelOne extends GameScreen{
     public void draw(GraphicsContext gc){
         super.draw(gc);
         gc.setFill(Color.BLACK);
-        gc.fillText("Coins: " + coins, 50, 50);
+        gc.fillText("Evidence Deleted: " + coins, 50, 50);
+        gc.fillText("DELETE THE EVIDENCE", 350, 25);
     }
 }

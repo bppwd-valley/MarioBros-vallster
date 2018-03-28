@@ -13,13 +13,15 @@ public class EndScreen extends GameScreen{
     }
     public void draw(GraphicsContext gc){
         super.draw(gc);
-        gc.setFill(Color.RED);
-        gc.fillText("      GAME OVER       ", 350, 300);
-        gc.fillText("Press Enter To restart", 350, 375);
+        
         gc.setFill(Color.BLACK);
-        for (int i = 0; i<6000; i++){
-            gc.fillText("EMAILS DISCOVERED", Math.random()*10000, Math.random()*10000);
+        for (int i = 0; i<20000; i++){
+            gc.fillText("EMAILS DISCOVERED", Math.random()*1000-100, Math.random()*1000);
         }
+        gc.setFill(Color.RED);
+        gc.fillText("EMAILS DISCOVERED", 337, 250);
+        gc.fillText("      GAME OVER       ", 340, 300);
+        gc.fillText("Press Enter To restart", 340, 375);
     }
 
     @Override
