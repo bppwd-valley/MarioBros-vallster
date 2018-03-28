@@ -38,7 +38,7 @@ public class LevelOne extends GameScreen{
             player.move("Right");
         }
         if (event.getCode() == KeyCode.SPACE){
-            if (player.getCollision() == true)
+            if (player.getCollision() == true && !player.getColliTop())
                 player.setVelY(-10);
         }
     }
@@ -75,20 +75,17 @@ public class LevelOne extends GameScreen{
                 }
             }
             else if (i instanceof Platform){
-                if(player.isColliding(i)){
-                    player.setCollision(true);
-                    sf = false;
-                }
-                if(player.isCollidingBottom(i)){
-                    sf = false;
-                }
-                if(player.isCollidingTop(i)){
+                if(i.isCollidingBottom(player)){
                     sf = true;
                 }
-                if(player.isCollidingLeft(i)){
+                if(i.isCollidingTop(player)){
+                    sf = false;
+                    player.setCollision(true);
+                }
+                if(i.isCollidingLeft(player)){
                     player.stopMove();
                 }
-                if(player.isCollidingRight(i)){
+                if(i.isCollidingRight(player)){
                     player.stopMove();
                 } 
             }
