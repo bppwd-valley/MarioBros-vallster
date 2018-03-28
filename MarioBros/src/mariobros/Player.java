@@ -62,12 +62,6 @@ public class Player extends GameObject{
     
     @Override
     public void update() {
-        if(colliRight && velocityX > 0){
-            velocityX = 0;
-        }
-        if(colliLeft && velocityX < 0){
-            velocityX = 0;
-        }
         move();
         jump();
     }
