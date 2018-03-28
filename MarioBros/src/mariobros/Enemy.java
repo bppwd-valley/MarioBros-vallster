@@ -1,5 +1,6 @@
 package mariobros;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Enemy extends GameObject{
@@ -26,4 +27,10 @@ public class Enemy extends GameObject{
 
     }
     
+    @Override
+    public void draw(GraphicsContext gc) {
+        super.draw(gc);
+        gc.setFill(Color.BLACK);
+        gc.fillText("Trump", x+7, y+(h/2));
+    }
 }

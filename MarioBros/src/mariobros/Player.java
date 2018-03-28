@@ -1,6 +1,7 @@
 package mariobros;
 
 import java.util.ArrayList;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Player extends GameObject{
@@ -34,7 +35,7 @@ public class Player extends GameObject{
         }
     }
     
-     public void jump(){
+    public void jump(){
         y += velocityY;
     }
      
@@ -76,4 +77,10 @@ public class Player extends GameObject{
         jump();
     }
     
+    @Override
+    public void draw(GraphicsContext gc){
+        super.draw(gc);
+        gc.setFill(Color.BLACK);
+        gc.fillText("Hillary", x+7, y+(h/2));
+    }
 }
